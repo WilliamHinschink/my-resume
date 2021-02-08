@@ -4,20 +4,26 @@
   "description": "A simple starter to get up and developing your digital curriculum with GatsbyJS",
   "version": "0.0.1",
   "author": "Francisco Santos <yoshi.df@gmail.com>",
+  "contributors": [
+    {
+      "name": "William Hinschink",
+      "email": "develop.william@gmail.com"
+    }
+  ],
   "dependencies": {
     "@loadable/component": "5.12.0",
     "babel-plugin-styled-components": "1.10.6",
     "framer-motion": "1.11.0",
-    "gatsby": "2.23.3",
-    "gatsby-image": "2.4.7",
-    "gatsby-plugin-google-gtag": "^2.5.0",
-    "gatsby-plugin-manifest": "2.4.11",
+    "gatsby": "2.32.3",
+    "gatsby-image": "2.11.0",
+    "gatsby-plugin-google-gtag": "2.5.0",
+    "gatsby-plugin-manifest": "2.12.0",
     "gatsby-plugin-offline": "3.2.9",
     "gatsby-plugin-react-helmet": "3.3.4",
-    "gatsby-plugin-sharp": "2.6.11",
+    "gatsby-plugin-sharp": "2.14.1",
     "gatsby-plugin-styled-components": "3.3.4",
     "gatsby-source-filesystem": "2.3.11",
-    "gatsby-transformer-sharp": "2.5.5",
+    "gatsby-transformer-sharp": "2.12.0",
     "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-awesome-styled-grid": "3.0.7",
