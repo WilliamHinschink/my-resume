@@ -1,8 +1,19 @@
 {
   "name": "gatsby-starter-cv",
+  "version": "0.0.1",
   "private": true,
   "description": "A simple starter to get up and developing your digital curriculum with GatsbyJS",
-  "version": "0.0.1",
+  "keywords": [
+    "gatsby"
+  ],
+  "bugs": {
+    "url": "https://github.com/santosfrancisco/gatsby-starter-cv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santosfrancisco/gatsby-starter-cv"
+  },
+  "license": "MIT",
   "author": "Francisco Santos <yoshi.df@gmail.com>",
   "contributors": [
     {
@@ -10,13 +21,23 @@
       "email": "develop.william@gmail.com"
     }
   ],
+  "scripts": {
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "start": "npm run develop",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
   "dependencies": {
     "@loadable/component": "5.12.0",
+    "@material-ui/core": "4.11.3",
     "babel-plugin-styled-components": "1.10.6",
     "framer-motion": "1.11.0",
     "gatsby": "2.32.3",
     "gatsby-image": "2.11.0",
     "gatsby-plugin-google-gtag": "2.5.0",
+    "gatsby-plugin-layout": "1.1.13",
     "gatsby-plugin-manifest": "2.12.0",
     "gatsby-plugin-offline": "3.2.9",
     "gatsby-plugin-react-helmet": "3.3.4",
@@ -24,37 +45,21 @@
     "gatsby-plugin-styled-components": "3.3.4",
     "gatsby-source-filesystem": "2.3.11",
     "gatsby-transformer-sharp": "2.12.0",
+    "i18next": "19.8.7",
     "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-awesome-styled-grid": "3.0.7",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1",
+    "react-i18next": "11.8.5",
     "react-icons": "3.10.0",
     "react-switch": "5.0.1",
     "simple-json-fetch": "1.0.1",
     "styled-components": "5.1.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
-  },
   "devDependencies": {
+    "gatsby-plugin-root-import": "2.0.5",
     "gh-pages": "2.2.0",
     "prettier": "1.19.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/santosfrancisco/gatsby-starter-cv"
-  },
-  "bugs": {
-    "url": "https://github.com/santosfrancisco/gatsby-starter-cv/issues"
   }
 }

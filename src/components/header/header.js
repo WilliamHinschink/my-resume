@@ -6,6 +6,7 @@ import { FiSun, FiMoon } from "react-icons/fi"
 import { withPrefix } from "gatsby"
 import Switch from 'react-switch'
 import siteConfig from '../../../data/siteConfig'
+import LanguageMenu from '../i18n/languageMenu'
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -38,7 +39,7 @@ const HeaderNav = styled.nav`
 const HeaderLinkGroup = styled.div`
   display: flex;
   flex-direction: row;
-` 
+`
 
 const HeaderLink = styled(Link)`
   position: relative;
@@ -54,10 +55,10 @@ const HeaderLink = styled(Link)`
   padding-right: 20px;
   min-width: 42px;
   z-index: 10;
-  ${({ active }) => active && css`
+  ${({ activeAnchor }) => (activeAnchor && css`
     pointer-events: none;
     border-bottom: 2px solid #fff;
-  `}
+  `)}
 `
 
 const StyledSwitch = styled(Switch).attrs(props => ({
@@ -98,8 +99,8 @@ const Header = ({ location, onChangeTheme, theme }) => {
           ))}
         </HeaderLinkGroup>
         {siteConfig.enableDarkmode && <SwitchWrapper >
-          <StyledSwitch 
-            onChange={onChangeTheme} 
+          <StyledSwitch
+            onChange={onChangeTheme}
             checked={theme === 'light'}
             onColor="#626262"
             offColor="#212121"
@@ -107,6 +108,7 @@ const Header = ({ location, onChangeTheme, theme }) => {
             uncheckedIcon={<IconWrapper><FiMoon color="white" /></IconWrapper>}
           />
         </SwitchWrapper>}
+        <LanguageMenu />
       </HeaderNav>
     </HeaderWrapper>
   )

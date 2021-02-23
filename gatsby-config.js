@@ -1,4 +1,5 @@
 const config = require('./data/siteConfig')
+const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -34,6 +35,19 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        i18n: path.join(__dirname, 'src/i18n'),
+      }
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: `${__dirname}/src/components/layout/layout.js`
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

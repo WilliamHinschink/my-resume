@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { motion } from 'framer-motion'
 import { ResetCSS, GlobalStyle, themes } from '../styles'
 import Header from '../header'
 import Footer from '../footer'
 import { useDarkMode } from './useDarkMode'
 import { animateOnScroll } from '../../utils/isVisible'
+import { withTranslate } from '../../i18n/withTranslate'
 
 const variants = {
   initial: { y: 100, opacity: 0 },
@@ -18,34 +20,31 @@ const StyledContainer = styled.div`
   overflow-x: hidden;
 `
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, t, i18n }) => {
   const [theme, setTheme] = useDarkMode()
+  const defaultTheme = createMuiTheme()
   useEffect(() => {
     animateOnScroll()
   }, [])
+  debugger
   return (
-  <ThemeProvider theme={themes[theme || 'light']}>
-    <ResetCSS />
-    <GlobalStyle />
-    <StyledContainer>
-      <Header location={location} onChangeTheme={setTheme} theme={theme} />
-      <motion.main
-        key={location}
-        variants={variants}
-        initial="initial"
-        animate="enter"
-      >
-        {children}
-      </motion.main>
-      <Footer />
-    </StyledContainer>
-  </ThemeProvider>
-)}
+    <MuiThemeProvider theme={defaultTheme}>
+      <ThemeProvider theme={themes[theme || 'light']}>
+        <ResetCSS />
+        <GlobalStyle />
+        <StyledContainer>
+          <Header location={location} onChangeTheme={setTheme} theme={theme} />
+          {children}
+          <Footer />
+        </StyledContainer>
+      </ThemeProvider>
+    </MuiThemeProvider>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 }
 
-
-export default Layout
+export default withTranslate(Layout)
